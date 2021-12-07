@@ -1,0 +1,43 @@
+extends base.pug
+
+block title 
+    title Login Page 
+block script 
+
+block style 
+    style 
+        include ../static/base.css
+        include ../static/login.css
+
+block content
+    br
+    br
+    br
+    header
+        script.
+            const header = document.querySelector("header");
+            const param = document.createElement("p", {id: "hello"});
+            var num = #{remarks};
+            if (num){
+                param.innerHTML = "Incorrect username/password. <a href='/'> Forgot password?</a>"
+                header.appendChild(param);
+                setTimeout(() => {
+                    header.removeChild(param);
+                }, 3000);
+            };
+
+
+    form(action="/signin" method='post') 
+        label(for="uname") Username:
+        input(type="text" id="uname" name="Username" placeholder="Username")
+        label.one(for="passwd") Password:
+        input(type="password" id="passwd" name="Password" placeholder="Password")
+        br
+        button Sign in
+        br
+        br
+    div
+        label
+            strong Don't have an account?
+            br
+            | #[a(class="under" href="/signup" alt="Sign Up Button") Sign Up]

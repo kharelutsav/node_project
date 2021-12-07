@@ -1,0 +1,29 @@
+extends base.pug
+
+block title
+    title Signup Page
+
+block script
+    script(src="signup.js" defer) 
+
+block style
+    style
+        include ../static/base.css
+        include ../static/signup.css
+
+block content
+    form(name="signupForm" action="/signup" method="post")
+        label(for="uname") Username 
+        input(type="text" id="uname" name="username" placeholder="Username" required) 
+        label(for="passwd") Password
+        input(type="password" id="passwd" name="password" placeholder="Password" required) 
+        label(for="re-passwd") Re-Password
+        input(type="password" id="re-passwd" name="repassword" placeholder="Re-password" required) 
+        label(for="email") Email Address
+        input(type="email" id="email" name="email" placeholder="Email" required) 
+        label(for="address") Address
+        input(type="text" id="address" name="address" placeholder="Address" required) 
+        label(for="phone") Phone
+        input(type="text" id="phone" name="phone" placeholder="Phone" required) 
+        button Sign up
+        

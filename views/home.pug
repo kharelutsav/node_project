@@ -1,0 +1,31 @@
+extends base.pug
+
+block title 
+    title Home Page
+
+block script
+
+block style 
+    style 
+        include ../static/base.css
+        include ../static/home.css
+
+block content
+    img(src="marigold.bmp" alt="New Session Programme image.")
+    img(src="home.bmp", alt="Images with students and programmes")
+    section
+        h1 Popular Educational Quotes
+        article
+            -
+                const quotes = [
+                    'Education is the passport to the future, for tomorrow belongs to those who prepare for it today. – Malcolm X', 
+                    'An investment in knowledge pays the best interest. –  Benjamin Franklin', 
+                    'Live as if you were to die tomorrow. Learn as if you were to live forever. ― Mahatma Gandhi',
+                    'The learning process continues until the day you die. – Kirk Douglas',
+                    'Develop a passion for learning. If you do, you will never cease to grow. – Anthony J. D’Angelo',
+                    ' A person who won’t read has no advantage over one who can’t read. – Mark Twain',
+                    'They know enough who know how to learn. – Henry Adams',
+                    'Education is the ability to listen to almost anything without losing your temper or your self-confidence. ― Robert Frost'
+                    ]
+            for n in quotes
+                p= n

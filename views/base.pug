@@ -1,0 +1,29 @@
+doctype html 
+html 
+    head 
+        block title
+        block script
+        script.
+            document.addEventListener("DOMContentLoaded", function(){
+                window.addEventListener('scroll', function(){
+                    navbar_height = document.querySelector('.hi').offsetHeight;
+                    if(window.scrollY > navbar_height){
+                        document.querySelector('.hi').style.position = 'fixed';
+                    }else{
+                        document.querySelector('.hi').style.position = 'relative';
+                        document.body.style.paddingTop = '0px';
+                    }
+                })
+            })
+        block style
+    body 
+        nav.hi
+            ul 
+                li.sta
+                    li.sim #[a(href="/home") Home] 
+                    li.sim #[a(href="/about") About]
+                    li.sim #[a(href="/contacts") Contact]
+                li.dyn
+                    li.sign #[a(href="/signin") Signin]
+                    li.sign #[a(href="/signup") Signup]
+        block content  

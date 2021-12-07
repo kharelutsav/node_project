@@ -1,0 +1,17 @@
+extends base_user.pug
+
+block styles 
+    style 
+        include ../static/base_user.css
+        include ../static/user_page.css
+
+block scripts 
+    //- script(href="../static/base_user.js" defer)
+    //- script(href="../static/user_page.js" defer)
+    script
+        include ../static/base_user.js
+        include ../static/user_page.js
+  
+block body_codes 
+
+

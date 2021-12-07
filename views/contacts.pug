@@ -1,0 +1,22 @@
+extends base.pug
+
+block title 
+    title Contact Page
+
+block script
+
+block style 
+    style 
+        include ../static/base.css
+        include ../static/contacts.css
+
+block content 
+    h1.instructions.
+        #{heading}
+    form(action="/contacts" method="post")
+        input.text-input(type="text" name="name" id="name" placeholder="Your Name")
+        input.text-input(type="text" name="age" id="age" placeholder="Your Age")
+        input.text-input(type="text" name="address" id="address" placeholder="Your current address.")
+        input.text-input(type="text" name="topic" id="topic" placeholder="Topic")
+        textarea(type="text" name="description" id="description" placeholder="Description")
+        button.btn submit
