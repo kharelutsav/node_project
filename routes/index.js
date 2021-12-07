@@ -3,6 +3,7 @@ const { Login } = require('../data')
 const router = express.Router()
 
 const bodyParser = require('body-parser')
+const passport = require('passport')
 router.use(bodyParser.urlencoded({ extended: true}))
 
 // @desc Home/Landing page
@@ -49,18 +50,12 @@ router.get('/signin', (req, res) => {
     let ren = false;
     res.render('signin', {remarks: ren})
 })
-router.post('/signin', async (req, res) => {
-    let uname = req.body.Username;
-    let passwd = req.body.Password;
-    const record = await Login.find({username:`${uname}`, password:`${passwd}`}, {username:1, _id:0});
-    if (record[0]){
-        res.render('user_page.pug')
-    }else{
-        const remark = true;
-        console.log("not logged in", remark)
-        res.render('signin', {remarks: remark})
+router.post('/signin', passport.authenticate('local', {
+        failureRedirect: '/signin'
+    }), (req, res) => {
+        res.render('user_page')
     }
-})
+)
 
 // @desc Dashboard/Dash page
 // @route GET /dashboard
