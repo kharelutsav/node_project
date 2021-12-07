@@ -2,17 +2,26 @@
   "name": "marigold",
   "version": "1.0.0",
   "description": "practice",
-  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cross-env NODE_ENV=production node app",
+    "dev": "cross-env NODE_ENV=development nodemon app.js"
   },
   "author": "kharelu",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "connect-mongo": "^4.6.0",
+    "cross-env": "^7.0.3",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "method-override": "^3.0.0",
+    "moment": "^2.29.1",
     "mongoose": "^6.0.12",
-    "nodemon": "^2.0.14",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.15",
+    "passport": "^0.5.0",
     "pug": "^3.0.2"
   }
 }
