@@ -49,7 +49,7 @@ if (process.env.NODE_ENV === 'development') {
 
 // Routes
 app.use('/', require('./routes/index'))
-// app.use('/auth', require('./routes/auth'))
+app.use('/user', require('./routes/user'))
 
 // Server Listening
 const PORT = process.env.PORT || 3000

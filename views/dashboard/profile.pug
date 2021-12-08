@@ -1,0 +1,40 @@
+extends base_user.pug
+
+block styles 
+    style 
+        include ../../static/base_user.css
+        include ../../static/profile.css
+
+block scripts
+    script
+        include ../../static/base_user.js
+  
+block body_codes 
+    div.one 
+        div.contain_pic 
+            div.two
+                img.hello(alt="Photo" src="../images/english.jpg")
+            label Utsav Kharel 
+        
+        div.creds
+            fieldset 
+                legend Credentials 
+                div.left
+                    p.name Username 
+                    p.email Email 
+                    p Phone: 
+                    p Address: 
+                    p Class: 
+                    p Year: 
+                div.right
+                    p kharelu 
+                    p example@email.com
+                    p 64136845136513
+                    p address 
+                    p first 
+                    p this year
+
+
+
+
+

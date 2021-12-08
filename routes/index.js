@@ -61,7 +61,7 @@ router.post('/signin', passport.authenticate('local', {
 // @desc Dashboard/Dash page
 // @route GET /user/dashboard
 router.get('/user/dashboard', ensureAuth, (req, res) => {
-    res.render('dashboard')
+    res.render('dashboard/dashboard')
 })
 
 
