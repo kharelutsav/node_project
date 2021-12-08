@@ -5,6 +5,7 @@ const morgan = require('morgan')
 const passport = require('passport')
 const session = require('express-session')
 const path = require('path')
+const Connect_MONGO = require('connect-mongo')
  
 const app = express()
 
@@ -25,7 +26,13 @@ app.set('view engine', 'pug')
 app.use(session( {
     secret: 'Shut the fuck off',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: new Connect_MONGO({
+        collectionName: 'Sessions',
+        ttl: 1 * 1 * 10 * 60,
+        mongoUrl: process.env.MONGO_URI,
+        touchAfter: 5 * 60
+    })
 }))
 
 // Passport middleware

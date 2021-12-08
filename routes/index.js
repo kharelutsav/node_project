@@ -1,11 +1,11 @@
 const express = require('express')
-const { Login } = require('../data')
+const { Login } = require('../models/User')
 const router = express.Router()
 const { ensureAuth, ensureGuest } = require('../middleware/auth')
 
 const bodyParser = require('body-parser')
 const passport = require('passport')
-router.use(bodyParser.urlencoded({ extended: true}))
+router.use(bodyParser.urlencoded({ extended: true }))
 
 // @desc Home/Landing page
 // @route GET / or /home
@@ -40,7 +40,8 @@ router.post('/signup', async (req, res) => {
     .then(() => {
         res.status(200).render('signin')
     })
-    .catch(() => {
+    .catch((err) => {
+        console.log(err);
         res.status(400).send("Unable to submit the form.")
     })
 })
