@@ -6,7 +6,9 @@ const passport = require('passport')
 const session = require('express-session')
 const path = require('path')
 const Connect_MONGO = require('connect-mongo')
- 
+const csrf = require('csurf')
+const csrfProtection = csrf({ cookie: true })
+
 const app = express()
 
 
@@ -20,13 +22,19 @@ require('./config/passport')(passport)
 connectDB()
 
 // View Engine
-app.set('view engine', 'pug')
+app.set('view engine', 'pug');
 
 // Sessions
-app.use(session( {
+app.use(session({
     secret: 'Shut the fuck off',
-    resave: false,
+    resave: true,
     saveUninitialized: false,
+    cookie: {
+        secure: false,
+        maxAge: 1 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
+        sameSite: true
+    },
     store: new Connect_MONGO({
         collectionName: 'Sessions',
         ttl: 1 * 1 * 10 * 60,

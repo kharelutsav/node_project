@@ -1,14 +1,20 @@
 const express = require('express');
+const { Cookie } = require('express-session');
 const { session } = require('passport');
 const { ensureAuth, ensureGuest } = require('../middleware/auth');
 const router = express.Router();
 
-router.get('/profile', ensureAuth,(req, res) => {
+router.get('/profile', ensureAuth, (req, res) => {
     res.render('dashboard/profile')
 })
 
-router.get('/signout', ensureAuth,(req, res, next) => {
+router.get('/settings', ensureAuth, (req, res) => {
+    res.render('dashboard/settings')
+})
+
+router.get('/signout', ensureAuth, (req, res) => {
     req.session.destroy()
+    res.clearCookie("connect.sid")
     res.redirect('/signin')
 })
 

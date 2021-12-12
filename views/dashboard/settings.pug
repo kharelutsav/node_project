@@ -1,0 +1,16 @@
+extends base_user.pug
+
+block styles 
+    style 
+        include ../../static/css/base_user.css
+        include ../../static/css/settings.css
+
+block scripts
+    script
+        include ../../static/JavaScript/base_user.js
+        include ../../static/JavaScript/reset_password.js
+  
+block body_codes 
+    div.container 
+        a(href= "#") #[p.card.pass_res Password Reset]
+        a(href= "#") #[p.card.pro_up Update Profile]

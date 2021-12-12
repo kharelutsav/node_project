@@ -1,3 +1,5 @@
+const { session } = require("passport")
+
 module.exports = {
     ensureAuth: (req, res, next)=>{
         if (req.isAuthenticated()) {
