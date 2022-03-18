@@ -13,9 +13,10 @@ router.get('/settings', ensureAuth, (req, res) => {
 })
 
 router.get('/signout', ensureAuth, (req, res) => {
-    req.session.destroy()
-    res.clearCookie("connect.sid")
-    res.redirect('/signin')
+    req.session.destroy((err) => {
+        res.clearCookie('connect.sid')
+        res.redirect('/signin')
+    });
 })
 
 module.exports = router

@@ -1,13 +1,10 @@
-const { session } = require("passport")
-
 module.exports = {
-    ensureAuth: (req, res, next)=>{
+    ensureAuth: (req, res, next) => {
         if (req.isAuthenticated()) {
             return next()
         } else {
             res.redirect('/signin')
         }
-
     },
     ensureGuest: (req, res, next) => {
         if (req.isAuthenticated()) {

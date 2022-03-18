@@ -26,7 +26,7 @@ app.set('view engine', 'pug');
 
 // Sessions
 app.use(session({
-    secret: 'Shut the fuck off',
+    secret: 'Secret',
     resave: true,
     saveUninitialized: false,
     cookie: {
